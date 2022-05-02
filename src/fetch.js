@@ -14,7 +14,12 @@ export function onInputType(event) {
   countryDiv.innerHTML = '';
   if (inputValue) {
     fetch(URL)
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        return response.json();
+      })
       .then(data => {
         if (data.length > 10) {
           Notify.info('Too many matches found. Please enter a more specific name.');
