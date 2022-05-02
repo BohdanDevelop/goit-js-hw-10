@@ -1,4 +1,6 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+const newSth = 5;
+const sdf = 6;
 Notify.init({
   clickToClose: true,
   position: 'center-top',
